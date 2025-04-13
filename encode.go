@@ -37,6 +37,10 @@ func Encode(coordinates []Point) string {
 // the current and previous values. Then applies the algorithm to encode the value.
 func encodeCoordinate(original, previous float32) string {
 	diff := original - previous
+	if diff == 0 {
+		return "?"
+	}
+
 	// multiply the number by 1e5
 	lat := uint32(int(diff * 1e5))
 	// left shift one bit
