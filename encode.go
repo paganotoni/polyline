@@ -37,6 +37,9 @@ func Encode(coordinates []Point) string {
 // the current and previous values. Then applies the algorithm to encode the value.
 func encodeCoordinate(original, previous float32) string {
 	diff := original - previous
+
+	// If current value is equal to previous value
+	// Return a question mark
 	if diff == 0 {
 		return "?"
 	}
