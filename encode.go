@@ -15,8 +15,7 @@ type Point struct {
 // Encode encodes a list of points into a polyline string and
 // returns the encoded string.
 func Encode(coordinates []Point) string {
-	prevLat := float32(0)
-	prevLng := float32(0)
+	var prevLat, prevLng float32
 	encoded := ""
 	for _, point := range coordinates {
 		lat := point.Lat
