@@ -16,16 +16,14 @@ type Point struct {
 // returns the encoded string.
 func Encode(coordinates []Point) string {
 	var prevLat, prevLng float32
-	encoded := ""
+	var encoded string
+
 	for _, point := range coordinates {
-		lat := point.Lat
-		lng := point.Lng
+		encoded += encodeCoordinate(point.Lat, prevLat)
+		encoded += encodeCoordinate(point.Lng, prevLng)
 
-		encoded += encodeCoordinate(lat, prevLat)
-		encoded += encodeCoordinate(lng, prevLng)
-
-		prevLat = lat
-		prevLng = lng
+		prevLat = point.Lat
+		prevLng = point.Lng
 	}
 
 	return encoded
