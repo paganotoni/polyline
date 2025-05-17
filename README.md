@@ -6,7 +6,21 @@ For more information, visit Google's explanation of the algorithm [here](https:/
 
 ## How to Use
 
-```go
+```
+
+## Benchmarks
+
+Below are the results of running the built-in Go benchmarks for both encoding and decoding on an Apple M3 Max (darwin/arm64). These numbers provide a sense of the library's performance for typical usage.
+
+```
+goos: darwin
+goarch: arm64
+pkg: github.com/paganotoni/polyline
+cpu: Apple M3 Max
+BenchmarkEncode-16    	  538521	      1880 ns/op
+BenchmarkDecode-16    	17812467	        68.15 ns/op
+PASS
+```
 package main
 
 import (
