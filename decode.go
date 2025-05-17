@@ -40,6 +40,7 @@ func Decode(poly string) ([]Point, error) {
 func decodeCoordinate(poly string, start int) (int32, int, error) {
 	var result, shift, b int32
 	index := start
+
 	for {
 		if index >= len(poly) {
 			return 0, index, errors.New("polyline decode: truncated string")
@@ -52,9 +53,11 @@ func decodeCoordinate(poly string, start int) (int32, int, error) {
 			break
 		}
 	}
+
 	coord := result >> 1
 	if result&1 != 0 {
 		coord = ^coord
 	}
+
 	return coord, index, nil
 }
