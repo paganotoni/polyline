@@ -23,8 +23,6 @@ jobs:
 
       - name: Run golangci-lint
         run: $(go env GOPATH)/bin/golangci-lint run ./...
-        working-directory: polyline
 
       - name: Run tests
         run: go test -v ./...
-        working-directory: polyline
