@@ -9,6 +9,7 @@ import (
 func Decode(poly string) ([]Point, error) {
 	var points []Point
 	var lat, lng int32
+
 	index := 0
 	length := len(poly)
 
@@ -17,6 +18,7 @@ func Decode(poly string) ([]Point, error) {
 		if err != nil {
 			return nil, err
 		}
+
 		index = n
 		lat += dlat
 
@@ -24,6 +26,7 @@ func Decode(poly string) ([]Point, error) {
 		if err != nil {
 			return nil, err
 		}
+
 		index = n
 		lng += dlng
 
@@ -45,10 +48,12 @@ func decodeCoordinate(poly string, start int) (int32, int, error) {
 		if index >= len(poly) {
 			return 0, index, errors.New("polyline decode: truncated string")
 		}
+
 		b = int32(poly[index]) - 63
 		index++
 		result |= (b & 0x1F) << shift
 		shift += 5
+
 		if b < 0x20 {
 			break
 		}
