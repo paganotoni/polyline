@@ -39,7 +39,7 @@ func main() {
 Below are the results of running the built-in Go benchmarks for both encoding and decoding on an Apple M3 Max (darwin/arm64). These numbers provide a sense of the library's performance for typical usage.
 
 ```sh
-$ go test -bench=. ./polyline
+$ go test -bench=. .
 goos: darwin
 goarch: arm64
 pkg: github.com/paganotoni/polyline
