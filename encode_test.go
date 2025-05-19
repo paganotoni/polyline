@@ -6,7 +6,7 @@ import (
 	"github.com/paganotoni/polyline"
 )
 
-func Test(t *testing.T) {
+func TestEncode(t *testing.T) {
 	t.Run("Standard case", func(t *testing.T) {
 		data := []polyline.Point{
 			{38.5, -120.2},
@@ -95,6 +95,21 @@ func Test(t *testing.T) {
 		}
 
 		expected := "odgdPohqia@~ioia@~qctcA"
+		result := polyline.Encode(data)
+
+		if result != expected {
+			t.Errorf("Expected %s, got %s", expected, result)
+		}
+	})
+
+	t.Run("Fractional values", func(t *testing.T) {
+		data := []polyline.Point{
+			{35.6, -82.55},
+			{35.59985, -82.55015},
+			{35.6, -82.55},
+		}
+
+		expected := "_chxEn`zvN\\]]"
 		result := polyline.Encode(data)
 
 		if result != expected {
